@@ -2028,9 +2028,6 @@ static void auto_destroy_obj(object_type *o_ptr, int autopick_idx)
         /* Describe the object (with {terrible/special}) */
         object_desc(name, o_ptr, OD_COLOR_CODED);
 
-        /* Message */
-        msg_format("You cannot auto-destroy %s.", name);
-
         /* Done */
         return;
     }
