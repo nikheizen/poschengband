@@ -3616,8 +3616,6 @@ void calc_bonuses(void)
     p_ptr->easy_capture = FALSE;
     p_ptr->easy_realm1 = REALM_NONE;
 
-    p_ptr->move_random = FALSE;
-
     p_ptr->magic_resistance = 0;
     p_ptr->good_luck = FALSE;
     p_ptr->rune_elem_prot = FALSE;
