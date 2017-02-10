@@ -793,7 +793,7 @@ static void _birth(void)
 {
     py_birth_obj_aux(TV_HAFTED, SV_WHIP, 1);
     py_birth_obj_aux(TV_SOFT_ARMOR, SV_SOFT_LEATHER_ARMOR, 1);
-    py_birth_obj_aux(TV_SCROLL, SV_SCROLL_MAPPING, rand_range(5, 10));
+    py_birth_obj_aux(TV_SCROLL, SV_SCROLL_MAPPING, 7);
 }
 
 void _get_object(obj_ptr obj)

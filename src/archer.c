@@ -223,7 +223,7 @@ static void _birth(void)
     py_birth_obj_aux(TV_SOFT_ARMOR, SV_LEATHER_SCALE_MAIL, 1);
     py_birth_obj_aux(TV_BOW, SV_SHORT_BOW, 1);
     py_birth_obj_aux(TV_QUIVER, 0, 1);
-    py_birth_obj_aux(TV_ARROW, SV_ARROW, rand_range(30, 50));
+    py_birth_obj_aux(TV_ARROW, SV_ARROW, 40);
 }
 
 class_t *archer_get_class(void)
