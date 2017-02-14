@@ -2992,6 +2992,17 @@ extern void do_cmd_debug(void);
 
 
 
+#ifdef ALLOW_SPOILERS
+
+/*
+ * External function
+ */
+extern void do_cmd_spoilers(void);
+
+#endif /* ALLOW_SPOILERS */
+
+
+
 /*
  * Parse and execute the current command
  * Give "Warning" on illegal commands.
@@ -3049,24 +3060,15 @@ static void _dispatch_command(int old_now_turn)
 
 #endif /* ALLOW_WIZARD */
 
+#ifdef ALLOW_SPOILERS
 
-#ifdef ALLOW_BORG
-
-        /* Special "borg" commands */
         case KTRL('Z'):
         {
-            /* Enter borg mode */
-            if (enter_borg_mode())
-            {
-                if (!p_ptr->wild_mode) do_cmd_borg();
-            }
-
+            do_cmd_spoilers();
             break;
         }
 
-#endif /* ALLOW_BORG */
-
-
+#endif /* ALLOW_SPOILERS */
 
         /*** Inventory Commands ***/
 
