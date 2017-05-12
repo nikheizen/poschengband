@@ -3255,8 +3255,6 @@ static void print_tomb(void)
  */
 static void show_info(void)
 {
-    bool dumped = FALSE;
-
     pack_for_each(obj_identify);
     equip_for_each(obj_identify);
     quiver_for_each(obj_identify);
@@ -3298,12 +3296,7 @@ static void show_info(void)
 
         /* Ask for filename (or abort) */
         if (!askfor(out_val, 60))
-        {
-            if (dumped) return;
-            if (get_check("<color:v>Warning:</color> You forgot to grab a character dump. "
-                          "Are you sure you want to abort? ")) return;
-            continue;
-        }
+            return;
         /* Return means "show on screen" */
         if (!out_val[0]) break;
 
@@ -3312,7 +3305,6 @@ static void show_info(void)
 
         /* Dump a character file */
         (void)file_character(out_val, FALSE);
-        dumped = TRUE;
 
         /* Load screen */
         screen_load();
