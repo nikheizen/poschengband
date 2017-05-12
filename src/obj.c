@@ -764,8 +764,7 @@ void gear_ui(int which)
     string_ptr   s;
 
     s = string_alloc_format(
-        "<color:w>Carrying %d.%d pounds (<color:%c>%d%%</color> capacity).</color>\n\n"
-        "Examine which item <color:w>(<color:keypress>Esc</color> to exit)</color>?",
+        "<color:w>Carrying %d.%d pounds (<color:%c>%d%%</color> capacity).</color>",
          wgt / 10, wgt % 10, pct > 100 ? 'r' : 'G', pct);
     prompt.prompt = string_buffer(s);
     prompt.where[0] = INV_PACK;

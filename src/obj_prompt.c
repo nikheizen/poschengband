@@ -21,7 +21,7 @@ int obj_prompt(obj_prompt_ptr prompt)
     assert(!prompt->obj);
 
     context.prompt = prompt;
-    context.page_size = MIN(26, ui_doc_menu_rect().cy - 3 - _count_lines(prompt->prompt));
+    context.page_size = MIN(26, ui_doc_menu_rect().cy - 1 - _count_lines(prompt->prompt));
     _context_make(&context);
 
     if (!vec_length(context.tabs))
@@ -245,16 +245,6 @@ static void _display(obj_prompt_context_ptr context)
             tab->page == tab->page_ct - 1 ? "less" : "more",
             tab->page + 1, tab->page_ct);
     }
-    if (!(context->prompt->flags & (INV_SHOW_FAIL_RATES | INV_SHOW_VALUE)))
-    {
-        if (show_weights)
-        {
-            int wgt = inv_weight(tab->inv, NULL);
-            doc_printf(context->doc, "<tab:%d><color:R> %3d.%d lbs</color>",
-                doc_width(context->doc) - 9, wgt/10, wgt%10);
-        }
-    }
-    doc_newline(context->doc);
     if (context->prompt->prompt)
         doc_printf(context->doc, "<color:y>%s</color> ", context->prompt->prompt);
     else
