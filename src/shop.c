@@ -1325,9 +1325,15 @@ static void _loop(_ui_context_ptr context)
                 doc_display_help("context_shop.txt", NULL);
                 Term_clear_rect(ui_shop_msg_rect());
                 break;
-            case SKEY_PGDOWN: case '3': case ' ':
+            case SKEY_PGDOWN: case '3':
                 if (context->top + context->page_size - 1 < max)
                     context->top += context->page_size;
+                break;
+            case ' ':
+                if (context->top + context->page_size - 1 < max)
+                    context->top += context->page_size;
+                else
+                    context->top = 1;
                 break;
             case SKEY_PGUP: case '9': case '-':
                 if (context->top > context->page_size)
