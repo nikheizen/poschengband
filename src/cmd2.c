@@ -2414,7 +2414,12 @@ static bool _travel_next_obj(int mode)
 void do_cmd_get(void)
 {
     if (!cave[py][px].o_idx)
-        msg_print("You see no objects here. Try <color:keypress>^G</color> to auto-get nearby objects.");
+    {
+        if (auto_get_objects || auto_get_ammo)
+            msg_print("You see no objects here. Try <color:keypress>^G</color> to auto-get nearby objects.");
+        else
+            msg_print("You see no objects here.");
+    }
     if (pack_get_floor())
         energy_use = 100;
 }
