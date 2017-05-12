@@ -827,19 +827,6 @@ bool quests_check_leave(void)
     {
         if (q->flags & QF_RETAKE)
         {
-            char       c;
-            string_ptr s = string_alloc();
-
-            string_append_s(s, "<color:r>Warning,</color> you are about to leave the quest: <color:R>");
-            if ((q->flags & QF_RANDOM) && q->goal == QG_KILL_MON)
-                string_printf(s, "Kill %s", r_name + r_info[q->goal_idx].name);
-            else
-                string_append_s(s, q->name);
-            string_append_s(s, "</color>. You may return to this quest later though. "
-                               "Are you sure you want to leave? <color:y>[Y,n]</color>");
-            c = msg_prompt(string_buffer(s), "ny", PROMPT_YES_NO);
-            string_free(s);
-            if (c == 'n') return FALSE;
         }
         else
         {
