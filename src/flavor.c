@@ -1620,17 +1620,7 @@ void object_desc(char *buf, object_type *o_ptr, u32b mode)
         if (o_ptr->activation.type)
         {
             char buf[255];
-            if (mode & OD_COLOR_CODED)
-            {
-                byte color = effect_color(&o_ptr->activation);
-                sprintf(buf, ": <color:%c>%s</color>",
-                        attr_to_attr_char(color),
-                        do_effect(&o_ptr->activation, SPELL_NAME, 0));
-            }
-            else
-            {
-                sprintf(buf, ": %s", do_effect(&o_ptr->activation, SPELL_NAME, 0));
-            }
+            sprintf(buf, ": %s", do_effect(&o_ptr->activation, SPELL_NAME, 0));
             t = object_desc_str(t, buf);
         }
     }
@@ -1940,15 +1930,7 @@ void object_desc(char *buf, object_type *o_ptr, u32b mode)
 
                 t = object_desc_chr(t, ' ');
                 t = object_desc_chr(t, p1);
-                if ((mode & OD_COLOR_CODED) && charges < max_charges)
-                {
-                    if (!charges)
-                        t = object_desc_str(t, format("<color:r>%d/%d charges</color>", charges, max_charges));
-                    else
-                        t = object_desc_str(t, format("<color:y>%d/%d charges</color>", charges, max_charges));
-                }
-                else
-                    t = object_desc_str(t, format("%d/%d charges", charges, max_charges));
+                t = object_desc_str(t, format("%d/%d charges", charges, max_charges));
                 t = object_desc_chr(t, p2);
             }
         }
