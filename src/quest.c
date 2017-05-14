@@ -1005,11 +1005,11 @@ void quests_display(void)
                         char name[MAX_NLEN];
                         strcpy(name, r_name + r_ptr->name);
                         plural_aux(name);
-                        doc_printf(doc, "    <indent>Kill %d %s (%d killed so far)</indent>\n",
+                        doc_printf(doc, "    <indent>Kill %d %s (%d killed so far).</indent>",
                             q->goal_count, name, q->goal_current);
                     }
                     else if (q->flags & QF_RANDOM)
-                        doc_printf(doc, "    Kill %s\n", r_name + r_ptr->name);
+                        doc_printf(doc, "    Kill %s.", r_name + r_ptr->name);
                 }
                 if (!(q->flags & QF_RANDOM))
                 {
