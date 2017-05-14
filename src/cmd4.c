@@ -3878,6 +3878,174 @@ static int collect_features(int grp_cur, int *feat_idx, byte mode)
     return feat_cnt;
 }
 
+cptr inven_res_label =
+ "                               AcElFiCoPoLiDkShSoNtNxCaDi BlFeCfFaSiHlEpSdRgLv";
+
+
+#define IM_FLAG_STR  "* "
+#define HAS_FLAG_STR "+ "
+#define NO_FLAG_STR  ". "
+
+#define print_im_or_res_flag(IM, RES) \
+{ \
+    fputs(have_flag(flgs, (IM)) ? IM_FLAG_STR : \
+          (have_flag(flgs, (RES)) ? HAS_FLAG_STR : NO_FLAG_STR), fff); \
+}
+
+#define print_flag(TR) \
+{ \
+    fputs(have_flag(flgs, (TR)) ? HAS_FLAG_STR : NO_FLAG_STR, fff); \
+}
+
+
+/* XTRA HACK RESLIST */
+static void do_cmd_knowledge_inven_aux(FILE *fff, object_type *o_ptr, int *j, byte tval, char *where)
+{
+    char o_name[MAX_NLEN];
+    u32b flgs[OF_ARRAY_SIZE];
+
+    if (!o_ptr->k_idx) return;
+    if (o_ptr->tval != tval) return;
+
+    /* Identified items only */
+    if (!object_is_known(o_ptr)) return;
+
+    /*
+     * HACK:Ring of Lordly protection and Dragon equipment
+     * have random resistances.
+     */
+    if ((object_is_wearable(o_ptr) && object_is_ego(o_ptr))
+        || object_is_dragon_armor(o_ptr)
+        || object_is_artifact(o_ptr))
+    {
+        int i = 0;
+        object_desc(o_name, o_ptr, OD_NAME_ONLY);
+
+        while (o_name[i] && (i < 26))
+        {
+            i++;
+        }
+
+        if (i < 28)
+        {
+            while (i < 28)
+            {
+                o_name[i] = ' '; i++;
+            }
+        }
+        o_name[i] = '\0';
+
+        fprintf(fff, "%s %s", where, o_name);
+
+        obj_flags_known(o_ptr, flgs);
+
+        print_im_or_res_flag(OF_IM_ACID, OF_RES_ACID);
+        print_im_or_res_flag(OF_IM_ELEC, OF_RES_ELEC);
+        print_im_or_res_flag(OF_IM_FIRE, OF_RES_FIRE);
+        print_im_or_res_flag(OF_IM_COLD, OF_RES_COLD);
+        print_flag(OF_RES_POIS);
+        print_flag(OF_RES_LITE);
+        print_flag(OF_RES_DARK);
+        print_flag(OF_RES_SHARDS);
+        print_flag(OF_RES_SOUND);
+        print_flag(OF_RES_NETHER);
+        print_flag(OF_RES_NEXUS);
+        print_flag(OF_RES_CHAOS);
+        print_flag(OF_RES_DISEN);
+
+        fputs(" ", fff);
+
+        print_flag(OF_RES_BLIND);
+        print_flag(OF_RES_FEAR);
+        print_flag(OF_RES_CONF);
+        print_flag(OF_FREE_ACT);
+        print_flag(OF_SEE_INVIS);
+        print_flag(OF_HOLD_LIFE);
+        print_flag(OF_TELEPATHY);
+        print_flag(OF_SLOW_DIGEST);
+        print_flag(OF_REGEN);
+        print_flag(OF_LEVITATION);
+
+        fputc('\n', fff);
+
+        (*j)++;
+        if (*j == 9)
+        {
+            *j = 0;
+            fprintf(fff, "%s\n", inven_res_label);
+        }
+    }
+}
+
+/*
+ * Display *ID* ed weapons/armors's resistances
+ */
+static void do_cmd_knowledge_inven(void)
+{
+    FILE *fff;
+
+    char file_name[1024];
+
+    byte tval;
+    int i = 0;
+    int j = 0;
+
+    char  where[32];
+
+    /* Open a new file */
+    fff = my_fopen_temp(file_name, 1024);
+    if (!fff)
+    {
+        msg_format("Failed to create temporary file %s.", file_name);
+        msg_print(NULL);
+        return;
+    }
+    fprintf(fff, "%s\n", inven_res_label);
+
+    for (tval = TV_WEARABLE_BEGIN; tval <= TV_WEARABLE_END; tval++)
+    {
+        if (j != 0)
+        {
+            for (; j < 9; j++) fputc('\n', fff);
+            j = 0;
+            fprintf(fff, "%s\n", inven_res_label);
+        }
+
+        strcpy(where, "E ");
+        for (i = 1; i <= equip_max(); i++)
+        {
+            object_type *o_ptr = equip_obj(i);
+            if (o_ptr)
+                do_cmd_knowledge_inven_aux(fff, o_ptr, &j, tval, where);
+        }
+
+        strcpy(where, "I ");
+        for (i = 1; i <= pack_max(); i++)
+        {
+            object_type *o_ptr = pack_obj(i);
+            if (o_ptr)
+                do_cmd_knowledge_inven_aux(fff, o_ptr, &j, tval, where);
+        }
+
+        strcpy(where, "H ");
+        for (i = 1; i <= home_max(); i++)
+        {
+            object_type *o_ptr = home_obj(i);
+            if (o_ptr)
+                do_cmd_knowledge_inven_aux(fff, o_ptr, &j, tval, where);
+        }
+    }
+
+    /* Close the file */
+    my_fclose(fff);
+
+    /* Display the file contents */
+    show_file(TRUE, file_name, "Resistances of *identified* equipment", 0, 0);
+
+    /* Remove the file */
+    fd_kill(file_name);
+}
+
 void do_cmd_save_screen_doc(void)
 {
     string_ptr s = get_screenshot();
@@ -7052,6 +7220,7 @@ void do_cmd_knowledge(void)
         prt("(a) Artifacts", row++, col);
         prt("(o) Objects", row++, col);
         prt("(e) Egos", row++, col);
+        prt("(i) *Identified* Equip.", row++, col);
         prt("(_) Auto Pick/Destroy", row++, col);
         row++;
 
@@ -7112,6 +7281,9 @@ void do_cmd_knowledge(void)
             break;
         case 'e':
             do_cmd_knowledge_egos();
+            break;
+        case 'i':
+            do_cmd_knowledge_inven();
             break;
         case '_':
             do_cmd_knowledge_autopick();
