@@ -58,22 +58,6 @@ static void museum_carry(obj_ptr obj)
 /************************************************************************
  * Character Sheet (py_display)
  ***********************************************************************/
-static int _obj_cmp_score(obj_ptr left, obj_ptr right)
-{
-    if (!left && !right) return 0;
-    if (!left && right) return 1;
-    if (left && !right) return -1;
-    if (left == right) return 0;
-
-    assert(left && right);
-
-    if (!left->scratch) left->scratch = obj_value(left);
-    if (!right->scratch) right->scratch = obj_value(right);
-
-    if (left->scratch < right->scratch) return 1;
-    if (left->scratch > right->scratch) return -1;
-    return 0;
-}
 
 void home_display(doc_ptr doc, obj_p p, int flags)
 {
@@ -82,19 +66,14 @@ void home_display(doc_ptr doc, obj_p p, int flags)
     slot_t  slot;
     slot_t  max = inv_count_slots(inv, obj_exists);
 
-    inv_sort_aux(inv, _obj_cmp_score);
-    if (max > 50)
-    {
-        doc_printf(doc, "You have %d items in your home. Here are the top 50:\n", max);
-        max = 50;
-    }
+    inv_sort(inv);
 
     for (slot = 1; slot <= max; slot++)
     {
         obj_ptr obj = inv_obj(inv, slot);
         if (!obj) continue; /* bug */
         object_desc(name, obj, OD_COLOR_CODED);
-        doc_printf(doc, "<color:R>%6d</color> <indent><style:indent>%s</style></indent>\n", obj->scratch, name);
+        doc_printf(doc, "<indent><style:indent>%s</style></indent>\n", name);
     }
     inv_free(inv);
 }
