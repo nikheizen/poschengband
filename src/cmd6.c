@@ -1029,7 +1029,6 @@ static void do_cmd_device_aux(obj_ptr obj)
             else
             {
                 device_decrease_sp(obj, obj->activation.cost * charges);
-                obj->marked |= OM_DELAYED_MSG;
                 p_ptr->notice |= PN_CARRY;
             }
         }
