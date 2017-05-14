@@ -22,7 +22,6 @@ N:0:Standard
 S:WEAPON_SHIELD:Right Hand:0
 S:WEAPON_SHIELD:Left Hand:1
 S:BOW:Shooting
-S:QUIVER:Quiver
 S:RING:Right Ring:0
 S:RING:Left Ring:1
 S:AMULET:Neck
@@ -32,6 +31,7 @@ S:CLOAK:Cloak
 S:HELMET:Head
 S:GLOVES:Hands
 S:BOOTS:Feet
+S:QUIVER:Quiver
 
 N:1:Possessor Soul
 S:LITE:Light
@@ -243,7 +243,6 @@ N:24:Weir
 S:WEAPON_SHIELD:Right Hand:0
 S:WEAPON_SHIELD:Left Hand:1
 S:BOW:Shooting
-S:QUIVER:Quiver
 S:RING:Right Ring:0
 S:RING:Left Ring:1
 S:AMULET:Neck
@@ -252,6 +251,7 @@ S:BODY_ARMOR:Body
 S:CLOAK:Cloak
 S:HELMET:Head
 S:GLOVES:Hands
+S:QUIVER:Quiver
 
 # 3-Headed Cerberus
 N:25:Cerberus
@@ -348,7 +348,6 @@ S:HELMET:Head
 
 N:34:Monk
 S:BOW:Shooting
-S:QUIVER:Quiver
 S:RING:Right Ring
 S:RING:Left Ring
 S:AMULET:Neck
@@ -358,12 +357,12 @@ S:CLOAK:Cloak
 S:HELMET:Head
 S:GLOVES:Hands
 S:BOOTS:Feet
+S:QUIVER:Quiver
 
 N:35:Naga
 S:WEAPON_SHIELD:Right Hand:0
 S:WEAPON_SHIELD:Left Hand:1
 S:BOW:Shooting
-S:QUIVER:Quiver
 S:RING:Right Ring:0
 S:RING:Left Ring:1
 S:AMULET:Neck
@@ -372,6 +371,7 @@ S:BODY_ARMOR:Body
 S:CLOAK:Cloak
 S:HELMET:Head
 S:GLOVES:Hands
+S:QUIVER:Quiver
 
 N:36:Kavlax
 S:RING:Ring
@@ -453,7 +453,6 @@ N:44:Headless
 S:WEAPON_SHIELD:Right Hand:0
 S:WEAPON_SHIELD:Left Hand:1
 S:BOW:Shooting
-S:QUIVER:Quiver
 S:RING:Right Ring:0
 S:RING:Left Ring:1
 S:LITE:Light
@@ -461,6 +460,7 @@ S:BODY_ARMOR:Body
 S:CLOAK:Cloak
 S:GLOVES:Hands
 S:BOOTS:Feet
+S:QUIVER:Quiver
 
 N:45:Gorgimera
 S:RING:Ring
@@ -480,7 +480,6 @@ N:46:Centaur
 S:WEAPON_SHIELD:Right Hand:0
 S:WEAPON_SHIELD:Left Hand:1
 S:BOW:Shooting
-S:QUIVER:Quiver
 S:RING:Right Ring:0
 S:RING:Left Ring:1
 S:AMULET:Neck
@@ -489,12 +488,12 @@ S:BODY_ARMOR:Body
 S:CLOAK:Cloak
 S:HELMET:Head
 S:GLOVES:Hands
+S:QUIVER:Quiver
 
 N:47:Minotaur
 S:WEAPON_SHIELD:Right Hand:0
 S:WEAPON_SHIELD:Left Hand:1
 S:BOW:Shooting
-S:QUIVER:Quiver
 S:RING:Right Ring:0
 S:RING:Left Ring:1
 S:AMULET:Neck
@@ -503,6 +502,7 @@ S:BODY_ARMOR:Body
 S:CLOAK:Cloak
 S:HELMET:Head
 S:GLOVES:Hands
+S:QUIVER:Quiver
 
 N:48:Norsa
 S:RING:Ring
@@ -558,7 +558,6 @@ N:52:Ettin
 S:WEAPON_SHIELD:Arm:0
 S:WEAPON_SHIELD:Arm:1
 S:BOW:Shooting
-S:QUIVER:Quiver
 S:RING:Finger:0
 S:RING:Finger:1
 S:AMULET:Neck
@@ -569,6 +568,7 @@ S:HELMET:Head
 S:HELMET:Head
 S:GLOVES:Hands
 S:BOOTS:Feet
+S:QUIVER:Quiver
 
 N:53:Hydra1
 S:HELMET:Head
@@ -701,7 +701,6 @@ S:WEAPON:You
 N:65:Benedict
 S:WEAPON_SHIELD:Right Hand
 S:BOW:Shooting
-S:QUIVER:Quiver
 S:RING:Right Ring
 S:AMULET:Neck
 S:LITE:Light
@@ -709,6 +708,7 @@ S:BODY_ARMOR:Body
 S:CLOAK:Cloak
 S:HELMET:Head
 S:BOOTS:Feet
+S:QUIVER:Quiver
 
 N:66:Disembodied Hand
 S:RING:Ring
@@ -721,7 +721,6 @@ N:67:Drider
 S:WEAPON_SHIELD:Right Hand:0
 S:WEAPON_SHIELD:Left Hand:1
 S:BOW:Shooting
-S:QUIVER:Quiver
 S:RING:Right Ring:0
 S:RING:Left Ring:1
 S:AMULET:Amulet
@@ -733,6 +732,7 @@ S:BOOTS:Boots
 S:BOOTS:Boots
 S:BOOTS:Boots
 S:BOOTS:Boots
+S:QUIVER:Quiver
 
 N:68:Scorpion
 S:RING:Ring
@@ -779,7 +779,6 @@ N:72:Vampire
 S:WEAPON_SHIELD:Right Hand:0
 S:WEAPON_SHIELD:Left Hand:1
 S:BOW:Shooting
-S:QUIVER:Quiver
 S:RING:Right Ring:0
 S:RING:Left Ring:1
 S:AMULET:Neck
@@ -788,6 +787,7 @@ S:CLOAK:Cloak
 S:HELMET:Head
 S:GLOVES:Hands
 S:BOOTS:Feet
+S:QUIVER:Quiver
 
 N:73:Dire Wolf
 S:RING:Ring
