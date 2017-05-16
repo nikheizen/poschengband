@@ -421,8 +421,6 @@ static void _drop(_ui_context_ptr context)
         string_free(s);
         if (c == 'n') return;
     }
-    else
-        amt = prompt.obj->number;
 
     if (prompt.obj->number > 1)
     {

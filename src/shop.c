@@ -1547,10 +1547,8 @@ static void _buy(_ui_context_ptr context)
     if (!prompt.obj) return;
 
     if (prompt.obj->number > 1)
-    {
-        amt = prompt.obj->number;
-        if (!msg_input_num("Quantity", &amt, 1, prompt.obj->number)) return;
-    }
+        if (!msg_input_num("Quantity", &amt, 1, prompt.obj->number))
+            return;
 
     if (amt < prompt.obj->number)
     {
