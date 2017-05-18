@@ -2138,6 +2138,8 @@ static bool inn_comm(int cmd)
                         obj_ptr obj = pack_obj(slot);
                         if (obj && object_is_device(obj))
                             device_regen_sp_aux(obj, 1000);
+                        else if (obj && obj->timeout > 0)
+                            obj->timeout = 0;
                     }
                     for (slot = 1; slot <= equip_max(); slot++)
                     {
