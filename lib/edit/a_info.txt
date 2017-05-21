@@ -3348,6 +3348,111 @@ F:FULL_NAME | WIS | INSTA_ART
 E:RESTORE_MANA:50:777
 E:You focus your thoughts as your stone thrums with power.
 
+N:329:of Imoen
+I:19:12:2
+W:20:25:30:50000
+P:0:x3.33:12:12:0
+F:DEX | INT | STEALTH | RES_CONF | DEC_MANA
+F:HIDE_TYPE | SHOW_MODS | XTRA_H_RES | SUST_INT
+D:The bow used by Imoen, companion and adoptive
+D: sister of the Bhaalspawn. It calms the mind
+D: and improves the magical potential of its user.
+
+N:330:of Krishna 'Sharnga'
+I:19:13:3
+W:70:100:40:100000
+P:0:x4.00:28:28:0
+F:DEX | SEE_INVIS | XTRA_SHOTS
+D:A wonderful golden longbow that once belonged to a
+D: god of distant lands. It can fire as fast as thought
+D: and hurl divine arrows of terrible power -- though,
+D: sadly, none seem to be available here.
+
+N:331:'Trebuchet'
+I:19:2:4
+W:30:30:80:30000
+P:0:x3.50:-20:40:15
+F:STR | CON | DEC_DEX | DEC_SPEED | RES_NEXUS
+D:A heavy iron fustibalus which hurls shots with extraordinary
+D: might and inaccuracy.
+
+N:332:'Punk'
+I:19:2:3
+W:40:40:20:30000
+P:0:x2.80:13:13:0
+F:BRAND_ACID | DEX | STEALTH | DEC_CHR | RES_ACID
+D:A sling made of weird green leather, oozing corrosive slime.
+D: Originally the weapon of a notorious mischief-maker
+D: and general scamp, it's since fallen into less savoury hands.
+
+N:333:'Avalanche'
+I:19:2:6
+W:70:50:20:100000
+P:0:x2.00:25:25:0
+F:XTRA_SHOTS | SPEED | RES_SHARDS | RES_ACID | XTRA_H_RES
+
+N:334:'Guillotine'
+I:34:5:2
+W:50:30:200:60000
+P:8:2d3:0:0:0
+F:STR | CON | DEX | VORPAL | FREE_ACT | XTRA_RES_OR_POWER
+F:SLAY_HUMAN
+D:The blade of a massive guillotine, adapted for use as a
+D: shield or a cunning weapon.
+
+N:335:'Plinker'
+I:19:2:2
+W:30:40:20:60000
+P:0:x2.50:18:0:0
+F:XTRA_SHOTS | STUN | DEX | SUST_DEX
+D:Concussive rounds.
+
+N:336:'Ogre's Blade'
+I:21:1:6
+W:50:30:80:30000
+P:0:9d3:-3:27:0
+F:VORPAL | DEC_INT | STR | SUST_INT | SUST_STR
+D:Makes you a bit too dull to tell that a club
+D: is not sharp enough to cut things.
+
+N:337:'Spellshard'
+I:23:4:1
+W:20:35:12:30000
+P:0:2d4:10:10:10
+F:DEC_MANA | SPELL_CAP | INT | WIS | CHR
+F:SUST_INT | SUST_WIS | SUST_CHR | SPEED
+F:BRAND_MANA | RES_CONF | SLOW_DIGEST | REGEN
+E:CLARITY:10:10
+E:The spellshard hums softly.
+D:A short blade of crystallized magical energy affixed to
+D: a polished leather hilt. Oft-favoured by magical types,
+D: spellshards increase the wizardly potential of their
+D: bearers.
+
+N:338:'Fightin' Stick'
+I:21:21:4
+W:55:50:80:100000
+P:0:10d2:20:20:-20
+F:BRAND_MANA | SLAY_HUMAN | SLAY_DEMON | SLAY_UNDEAD
+F:STR | CON | DEX | DEC_INT | DEC_CHR | DEC_WIS | NO_MAGIC | BLOWS
+E:BERSERK:8:40
+E:Your magical energy overtakes your senses!
+D:For when spellcasting simply won't do, you might just
+D: need a big, heavy, stick.
+
+N:339:'Elfcoat'
+I:37:20:4
+W:65:60:20:200000
+P:28:1d4:0:0:12
+F:SPELL_CAP | INT | SUST_INT | STEALTH | DEX | SUST_DEX
+F:RES_ACID | RES_ELEC | RES_COLD | RES_FIRE | RES_POIS
+F:DEC_STR | XTRA_RES_OR_POWER | XTRA_H_RES | FREE_ACT
+E:GREAT_CLARITY:40:30
+E:Your armour sparkles like starlight.
+D:A sleek, shining coat of thin, mithril rings. Unimaginably light,
+D: this armour bolsters the magical capacity of its wearer as
+D: well as protecting them from all manner of harm.
+
 # N: serial number : item name
 # I: tval : sval : pval
 # W: depth : rarity : weight : cost
